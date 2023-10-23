@@ -1,9 +1,0 @@
-ORG 0000H
-
-MOV A, #0FH
-
-DA A
-
-MOV R0, #34H
-
-END
