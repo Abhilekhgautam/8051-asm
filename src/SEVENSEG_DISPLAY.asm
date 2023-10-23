@@ -1,0 +1,20 @@
+org 0300h
+mydata: DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH
+
+org 0000H
+MOV DPTR, #mydata
+MOV R7, #0AH
+LOOP: CLR A
+      MOVC A, @A+DPTR
+      MOV P1, A
+      INC DPTR
+      ACALL DELAY
+      DJNZ R7, LOOP
+END
+DELAY: MOV R0, #20
+       MOV R2, #30
+SAME:  DJNZ R2, SAME
+AGAIN: DJNZ R0, AGAIN
+       RET
+
+       
